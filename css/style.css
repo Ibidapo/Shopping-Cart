@@ -1,0 +1,96 @@
+/* Styling for Body */
+body {
+  background: url(../images/drink-shelf.jpg) no-repeat center;
+  background-size: cover;
+  height: 100%;
+}
+
+/* Styling for Texts */
+.text-center {
+  text-align: center;
+}
+
+/* Styling for Width */
+.w-30 {
+  width: 30%;
+}
+
+/* Styling for Padding */
+.pr-1 {
+  padding-right: 1rem;
+}
+.px-1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Styling for Horizontal Auto */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling for Display Flex */
+.d-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.center-flex {
+  justify-content: center;
+}
+.space-around-flex {
+  justify-content: space-around;
+}
+
+/* Styling for Input Field */
+label {
+  font-size: 0.875rem;
+  color: grey;
+}
+input {
+  width: 100%;
+  height: 1.5rem;
+  border-width: 0 0 2px 0;
+}
+input:focus {
+  outline: none;
+  border-width: 0 0 2px 0;
+  border-color: green;
+}
+
+/* Styling for Button */
+button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Styling for Body of Application */
+.container {
+  background: white;
+  width: 50%;
+  padding: 2rem;
+  margin-top: 100px;
+  box-shadow: 0 0 2px 2px #e4e4e4;
+}
+
+/* Styling for Table */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #e4e4e4;
+}

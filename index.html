@@ -2,9 +2,53 @@
 <html lang='en'>
     <head>
         <title>Shopping Cart</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <div><img /></div>
+        <div class="container mx-auto">
+            <div class="d-flex center-flex">
+                <img alt="Shopping Cart Logo" src="images/shopping-basket.png" class="pr-1"/>
+                <h2>Shopping Calculator</h3>
+            </div>
+            <form id="cartForm">
+                <h3 class="px-1">Item Cart</h3>
+                <div class="d-flex space-around-flex">
+                    <div class="w-30">
+                        <label for="name">Product Name</label>
+                        <input id="name" type="text">
+                    </div>
+                    <div class="w-30">
+                        <label for="qty">Quantity</label>
+                        <input id="qty" type="number">
+                    </div>
+                    <div class="w-30">
+                        <label for="price">Price</label>
+                        <input id="price" type="number">
+                    </div>
+                </div>
+                <div class="input-box text-center py-1">
+                    <button id="addCart">Add</button>
+                </div>
+            </form>
+            <div class="py-1 px-1">
+                <table id="cartTable">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Sub-Total</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-center">Total</td>
+                        <td id="total">0</td>
+                    </tr>
+                </table>
+                <div class="input-box text-center py-1">
+                    <button id="clearCart">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/index.js"></script>
     </body>    
 </html>
