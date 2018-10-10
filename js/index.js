@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     total.innerHTML = 0;
+    subTotals = [];
   }
 
   addCart.addEventListener('click', function(event) {
