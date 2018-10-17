@@ -1,34 +1,30 @@
 document.addEventListener('DOMContentLoaded', function(){
-  console.log('DOM has loaded');
   // Variables holding values from input fields
-  let name, qty, price, subTotal, itemValues;
+  const name = document.getElementById('name');
+  const qty =  document.getElementById('qty');
+  const price = document.getElementById('price');
   // Varaiable holding 'total cell' element
-  let total = document.getElementById('total');
+  const total = document.getElementById('total');
   // Variables holding 'add button' and 'clear button' elements
-  let addCart = document.getElementById('addCart');
-  let clearCart = document.getElementById('clearCart');
+  const addCart = document.getElementById('addCart');
+  const clearCart = document.getElementById('clearCart');
   // Variables holding values of Table elements
   let table, row, cell1, cell2, cell3, cell4;
 
   let subTotals = [];
+  let items;
 
-  let getValues = () => {
+  const getValues = (itemName, itemQty, itemPrice) => {
     //initilize element to variables
-    name = document.getElementById('name').value;
-    qty = document.getElementById('qty').value;
-    price = document.getElementById('price').value;
-    subTotal = qty * price;
-    subTotals.push(subTotal);
+    let itemSubTotal = itemQty * itemPrice;
+    subTotals.push(itemSubTotal);
 
     document.getElementById('cartForm').reset()
 
-    console.log({name, qty, price, subTotal});
-    return {name, qty, price, subTotal};
+    return {itemName, itemQty, itemPrice, itemSubTotal};
   }
 
-  let insertValues = () => {
-    itemValues = getValues();
-
+  const insertValues = (itemValue) => {
     // Initialize element of id='tableCart' to variable 'table'
     table = document.getElementById('cartTable');
     // Create an empty <tr> element and add it to the 1st position of the table body
@@ -40,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function(){
     cell4 = row.insertCell(3);
 
     // Add some text to the new cells:
-    cell1.innerHTML = itemValues.name;
-    cell2.innerHTML = itemValues.qty;
-    cell3.innerHTML = itemValues.price;
-    cell4.innerHTML = itemValues.subTotal;
+    cell1.innerHTML = itemValue.itemName;
+    cell2.innerHTML = itemValue.itemQty;
+    cell3.innerHTML = itemValue.itemPrice;
+    cell4.innerHTML = itemValue.itemSubTotal;
     total.innerHTML = subTotals.reduce((a, b) => a + b);
   }
 
-  let clearTable = () => {
+  const clearTable = () => {
     let fullTable = document.getElementById('cartTable')
     let numOfRows = fullTable.rows.length;
 
@@ -57,11 +53,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
     total.innerHTML = 0;
     subTotals = [];
+    clearCart.style.display = 'none';
   }
 
   addCart.addEventListener('click', function(event) {
     event.preventDefault();
-    insertValues();
+    let nameVal = name.value;
+    let qtyVal = qty.value;
+    let priceVal = price.value;
+    items = getValues(nameVal, qtyVal, priceVal);
+    insertValues(items);
+    clearCart.style.display = 'inline-block';
   });
 
   clearCart.addEventListener('click', clearTable);
